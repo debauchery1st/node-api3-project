@@ -1,4 +1,5 @@
 const User = require("../users/userDb");
+
 /* 
 validates the user id on every request that expects a user id parameter
 - if the `id` parameter is valid, store that user object as `req.user`
@@ -7,7 +8,7 @@ validates the user id on every request that expects a user id parameter
 */
 
 const validateUserId = (req, res, nxt) => {
-  const { id } = req.headers;
+  const { id } = req.query;
   id
     ? User.getById(id)
         .then(validUser => {
