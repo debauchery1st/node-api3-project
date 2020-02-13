@@ -5,7 +5,7 @@
 */
 
 const validateUser = (req, res, nxt) => {
-  !req.body
+  Object.keys(req.body).length === 0
     ? res.status(400).json({ message: "missing user data" })
     : req.body.name
     ? nxt()
